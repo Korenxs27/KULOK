@@ -1,0 +1,288 @@
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #f8f8f8; /* Light grey background */
+}
+/* Custom scrollbar for product carousel */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+/* Modal styles (used for custom alert and product detail) */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.modal-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+.modal-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 0.75rem; /* rounded-lg */
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* shadow-xl */
+  text-align: center;
+  max-width: 90%;
+  width: 400px; /* Default width, adjusted for responsiveness below */
+  transform: translateY(-20px);
+  transition: transform 0.3s ease;
+}
+.modal-overlay.open .modal-content {
+  transform: translateY(0);
+}
+
+/* Responsive Product Detail Modal */
+#product-detail-modal .modal-content {
+  max-width: 90%; /* Occupy 90% width on small screens */
+  width: 90%; /* Occupy 90% width on small screens */
+  padding: 1rem; /* Smaller padding on mobile */
+}
+@media (min-width: 640px) {
+  /* sm breakpoint */
+  #product-detail-modal .modal-content {
+    max-width: 500px; /* Max width for small tablets/laptops */
+    width: auto; /* Allow content to dictate width up to max-width */
+    padding: 2rem;
+  }
+}
+@media (min-width: 768px) {
+  /* md breakpoint */
+  #product-detail-modal .modal-content {
+    max-width: 700px; /* Max width for larger tablets/laptops */
+  }
+}
+#product-detail-modal .modal-content img {
+  width: 100%; /* Full width on mobile */
+  height: auto;
+}
+@media (min-width: 768px) {
+  #product-detail-modal .modal-content img {
+    width: 50%; /* Half width on desktop */
+  }
+}
+
+/* Chatbot styles */
+#chatbot-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #44403c; /* stone-800 */
+  color: white;
+  border-radius: 9999px; /* full rounded */
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  z-index: 900;
+  transition: transform 0.2s ease-in-out;
+}
+#chatbot-button:hover {
+  transform: scale(1.05);
+}
+#chatbot-container {
+  position: fixed;
+  bottom: 100px; /* Default for larger screens */
+  right: 20px; /* Default for larger screens */
+  width: 90%; /* Default, will be overridden by max-width on desktop */
+  max-width: 380px; /* Limits width on larger screens */
+  height: 500px;
+  background-color: white;
+  border-radius: 0.75rem; /* rounded-lg */
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 950;
+  transform: translateY(20px) scale(0.9);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+}
+#chatbot-container.open {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  visibility: visible;
+}
+#chat-header {
+  background-color: #44403c; /* stone-800 */
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+}
+#chat-body {
+  flex-grow: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  background-color: #f0f0f0; /* light grey for chat background */
+}
+.chat-message {
+  margin-bottom: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  max-width: 80%;
+}
+.chat-message.user {
+  background-color: #d4c2b4; /* light stone */
+  margin-left: auto;
+  text-align: right;
+}
+.chat-message.bot {
+  background-color: #e0e0e0;
+  margin-right: auto;
+  text-align: left;
+}
+#chat-input-container {
+  display: flex;
+  padding: 1rem;
+  border-top: 1px solid #e0e0e0;
+}
+#chat-input {
+  flex-grow: 1;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db; /* gray-300 */
+  border-radius: 0.5rem;
+  margin-right: 0.5rem;
+  font-size: 0.9rem;
+}
+#chat-send-button {
+  background-color: #44403c; /* stone-800 */
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+#chat-send-button:hover {
+  background-color: #292524; /* stone-900 */
+}
+#chat-loading {
+  display: none;
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+/* Responsive adjustments for chatbot on smaller screens (mobile) */
+@media (max-width: 767px) {
+  /* For screens smaller than md (768px) */
+  #chatbot-container {
+    left: 20px; /* Push from left */
+    right: 20px; /* Push from right */
+    max-width: unset; /* Remove max-width constraint for full width on mobile */
+    bottom: 80px; /* Adjust bottom for mobile, leaving space for button */
+    height: 70vh; /* Make it take more vertical space on mobile */
+  }
+  #chatbot-button {
+    bottom: 20px; /* Keep button position consistent */
+    right: 20px;
+  }
+}
+
+/* Sidebar styles */
+#sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 990; /* Below chatbot, above main content */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+#sidebar-overlay.open {
+  opacity: 1;
+  visibility: visible;
+  display: block; /* Ensure it's visible */
+}
+#mobile-nav {
+  position: fixed; /* Change to fixed */
+  top: 0;
+  left: 0;
+  width: 280px; /* Fixed width for sidebar */
+  height: 100%;
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  transform: translateX(-100%); /* Hide initially */
+  transition: transform 0.3s ease-in-out;
+  z-index: 995; /* Above overlay */
+  padding-top: 4rem; /* Space for fixed header */
+  display: none; /* Hidden by default for all screen sizes */
+}
+#mobile-nav.open {
+  transform: translateX(0); /* Slide in */
+  display: block; /* Make it visible when open */
+}
+/* Ensure mobile nav links are clickable */
+#mobile-nav ul {
+  padding: 1rem;
+}
+#mobile-nav li {
+  border-bottom: 1px solid #eee;
+  padding: 0.75rem 0;
+}
+#mobile-nav li:last-child {
+  border-bottom: none;
+}
+
+/* Search Overlay responsiveness */
+#search-overlay .modal-content {
+  max-width: 90%; /* Full width on small screens */
+  width: 90%;
+}
+@media (min-width: 640px) {
+  /* sm breakpoint */
+  #search-overlay .modal-content {
+    max-width: 600px;
+    width: auto;
+  }
+}
+@media (min-width: 768px) {
+  /* md breakpoint */
+  #search-overlay .modal-content {
+    max-width: 700px;
+  }
+}
+
+/* Parallax effect for Hero Section */
+#hero-section {
+  background-image: url("img/Background.png"); /* Menggunakan gambar placeholder yang sama */
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  /* Remove bg-stone-300 as background-image will cover it */
+  background-color: transparent;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+section.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+section.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

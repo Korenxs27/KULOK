@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KULOK</title>
+
+    <!-- Font Awesome Icon (zoom) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <!-- Three.js & Orbit -->
+    <script src="https://unpkg.com/three@0.158.0/build/three.min.js"></script>
+    <script src="https://unpkg.com/three@0.158.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://unpkg.com/three@0.158.0/examples/js/loaders/GLTFLoader.js"></script>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="icon" href="img/Logo.png" />
+    <!-- Google Fonts - Inter -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="overflow-x-hidden">
+    <!-- Header Section -->
+    <header
+      class="bg-white shadow-sm py-4 px-6 md:px-12 flex items-center justify-between sticky top-0 z-50 rounded-b-lg"
+    >
+      <!-- Left Section: Hamburger Menu -->
+      <div class="flex items-center space-x-4">
+        <button id="hamburger-menu" class="text-gray-700 focus:outline-none">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+        <!-- Mobile Navigation (hidden by default, now a sidebar) -->
+        <nav
+          id="mobile-nav"
+          class="fixed top-0 left-0 w-[280px] h-full bg-white shadow-lg py-4 px-6 rounded-r-lg transform -translate-x-full transition-transform duration-300"
+        >
+          <ul class="flex flex-col space-y-4">
+            <li>
+              <a
+                href="#hero-section"
+                class="text-gray-700 hover:text-stone-800 font-medium text-lg block py-2"
+                >Beranda</a
+              >
+            </li>
+            <li>
+              <a
+                href="#about-us-section"
+                class="text-gray-700 hover:text-stone-800 font-medium text-lg block py-2"
+                >Tentang Kami</a
+              >
+            </li>
+            <li>
+              <a
+                href="#product-carousel-section"
+                class="text-gray-700 hover:text-stone-800 font-medium text-lg block py-2"
+                >Produk Kami</a
+              >
+            </li>
+            <li>
+              <a
+                href="#event-catering-section"
+                class="text-gray-700 hover:text-stone-800 font-medium text-lg block py-2"
+                >Event</a
+              >
+            </li>
+            <li>
+              <a
+                href="#contact-section"
+                class="text-gray-700 hover:text-stone-800 font-medium text-lg block py-2"
+                >Kontak</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <!-- Sidebar Overlay -->
+        <div
+          id="sidebar-overlay"
+          class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"
+        ></div>
+      </div>
+
+      <!-- Center Section: Logo -->
+      <div class="flex-shrink-0">
+        <a href="#" class="flex flex-col items-center">
+          <img
+            src="img/Logo.jpeg"
+            alt="Ann's Logo Icon"
+            class="h-10 w-25 mb-1 rounded-full"
+          />
+        </a>
+      </div>
+
+      <!-- Right Section: Icons (Search only) -->
+      <div class="flex items-center space-x-6">
+        <a
+          href="#"
+          id="search-icon-button"
+          class="text-gray-700 hover:text-stone-800"
+        >
+          <i class="fas fa-search text-lg"></i>
+        </a>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+      id="hero-section"
+      class="animate-on-scroll relative h-[600px] flex items-center justify-center text-white overflow-hidden rounded-b-lg"
+    >
+      <!-- Background Image/Illustrations - Placeholder -->
+      <!-- <div
+        class="absolute inset-0 bg-gradient-to-r from-stone-700 to-stone-600 opacity-90"
+      ></div> -->
+      <!-- Removed img tag as background is now handled by CSS -->
+      <div class="relative z-10 text-center px-4">
+        <h1 class="text-5xl md:text-6xl font-bold mb-4 leading-tight">KULOK</h1>
+        <p class="text-xl md:text-2xl mb-8">#Lumerin Harimu dengan KULOK</p>
+        <button
+          class="bg-white text-stone-800 px-8 py-3 rounded-full font-semibold text-lg hover:bg-gray-100 transition duration-300 shadow-lg"
+        >
+          Order Now
+        </button>
+      </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section
+      id="about-us-section"
+      class="animate-on-scroll container mx-auto my-16 p-6 md:p-12 bg-white rounded-lg shadow-md flex flex-col md:flex-row items-center gap-8"
+    >
+      <div class="md:w-1/2">
+        <img
+          src="img/About.png"
+          alt="Ann's Bakehouse Store"
+          class="w-full h-auto object-cover rounded-lg shadow-md"
+        />
+      </div>
+      <div class="md:w-1/2 text-center md:text-left">
+        <h2 class="text-4xl font-bold text-gray-800 mb-6">Tentang Kami</h2>
+        <p class="text-gray-700 leading-relaxed text-lg">
+          Ann's Bakehouse & Creamery didirikan pada tahun 2014. Kami
+          memprioritaskan keunggulan layanan dan kebutuhan pelanggan kami dengan
+          membangun tim <strong class="text-stone-800">pengiriman</strong> dan
+          tim layanan pelanggan yang paling efektif untuk mencapai tujuan kami
+          menjadi toko kue online
+          <strong class="text-stone-800">layanan satu-klik-jauh</strong> yang
+          paling andal di Jakarta.
+        </p>
+      </div>
+    </section>
+
+    <!-- Product Carousel Section -->
+    <section
+      id="product-carousel-section"
+      class="animate-on-scroll container mx-auto my-16 p-6 md:p-12 bg-white rounded-lg shadow-md"
+    >
+      <h2 class="text-4xl font-bold text-gray-800 text-center mb-10">
+        Produk Kami
+      </h2>
+      <div class="relative flex items-center">
+        <!-- Left Arrow -->
+        <button
+          id="prev-product"
+          class="absolute left-0 bg-gray-200 p-3 rounded-full shadow-lg hover:bg-gray-300 focus:outline-none z-10 ml-4"
+        >
+          <i class="fas fa-chevron-left text-gray-700"></i>
+        </button>
+
+        <!-- Product Cards Container -->
+        <div
+          id="product-carousel"
+          class="flex overflow-x-scroll no-scrollbar space-x-6 p-4"
+        >
+          <!-- Product Card 1 -->
+          <div
+            class="product-card flex-none w-72 bg-white rounded-lg shadow-md overflow-hidden transform transition-transform duration-300 hover:scale-105 cursor-pointer"
+            data-name="KULOK Chocolate"
+            data-size="Square 20 x 20 cm"
+            data-price="Rp 20.000"
+            data-image="img/Product01.png"
+          >
+            <img
+              src="img/Product01.png"
+              alt="Chocolate"
+              class="w-full h-72 object-cover"
+            />
+            <div class="p-4">
+              <h3 class="font-semibold text-lg text-gray-800 mb-2">
+                KULOK Chocolate Lumer
+              </h3>
+              <p class="text-stone-800 font-bold text-xl">Rp 20.000</p>
+            </div>
+          </div>
+          <!-- Product Card 2 -->
+          <div
+            class="product-card flex-none w-72 bg-white rounded-lg shadow-md overflow-hidden transform transition-transform duration-300 hover:scale-105 cursor-pointer"
+            data-name="KULOK Matcha Lumer"
+            data-size="Square 20 x 20 cm"
+            data-price="Rp 20.000"
+            data-image="img/Product02.png"
+          >
+            <img
+              src="img/Product02.png"
+              alt="Matcha"
+              class="w-full h-72 object-cover"
+            />
+            <div class="p-4">
+              <h3 class="font-semibold text-lg text-gray-800 mb-2">
+                KULOK Matcha Lumer <br />
+                <span style="color: rgb(43, 0, 0); font-weight: 800"
+                  >(Varian baru)</span
+                >
+              </h3>
+              <p class="text-stone-800 font-bold text-xl">Rp 20.000</p>
+            </div>
+          </div>
+          <!-- Product Card 3 -->
+          <div
+            class="product-card flex-none w-72 bg-white rounded-lg shadow-md overflow-hidden transform transition-transform duration-300 hover:scale-105 cursor-pointer"
+            data-name="KULOK Cheese Lumer"
+            data-size="Round 20 cm"
+            data-price="Rp 20.000"
+            data-image="img/Product03.png"
+          >
+            <img
+              src="img/Product03.png"
+              alt="Cheese"
+              class="w-full h-72 object-cover"
+            />
+            <div class="p-4">
+              <h3 class="font-semibold text-lg text-gray-800 mb-2">
+                KULOK Cheese Lumer
+              </h3>
+              <p class="text-stone-800 font-bold text-xl">Rp 20.000</p>
+            </div>
+          </div>
+          <!-- Product Card 4 -->
+          <div
+            class="product-card flex-none w-72 bg-white rounded-lg shadow-md overflow-hidden transform transition-transform duration-300 hover:scale-105 cursor-pointer"
+            data-name="KULOK Red Velvet Lumer"
+            data-size="Square 20 x 20 cm"
+            data-price="Rp 20.000"
+            data-image="img/Product04.png"
+          >
+            <img
+              src="img/Product04.png"
+              alt="Red Velvet"
+              class="w-full h-72 object-cover"
+            />
+            <div class="p-4">
+              <h3 class="font-semibold text-lg text-gray-800 mb-2">
+                KULOK Red Velvet Lumer
+              </h3>
+              <p class="text-stone-800 font-bold text-xl">Rp 20.000</p>
+            </div>
+          </div>
+          <!-- Add more product cards as needed -->
+          <div
+            class="product-card flex-none w-72 bg-white rounded-lg shadow-md overflow-hidden transform transition-transform duration-300 hover:scale-105 cursor-pointer"
+            data-name="KULOK Tiramisu Lumer"
+            data-size="Round 20 cm"
+            data-price="Rp 20.000"
+            data-image="img/Product05.png"
+          >
+            <img
+              src="img/Product05.png"
+              alt="Tiramisu"
+              class="w-full h-72 object-cover"
+            />
+            <div class="p-4">
+              <h3 class="font-semibold text-lg text-gray-800 mb-2">
+                KULOK Tiramisu Lumer
+              </h3>
+              <p class="text-stone-800 font-bold text-xl">Rp 20.000</p>
+            </div>
+          </div>
+          <div
+            class="product-card flex-none w-72 bg-white rounded-lg shadow-md overflow-hidden transform transition-transform duration-300 hover:scale-105 cursor-pointer"
+            data-name="KULOK Mocca Lumer"
+            data-size="Round 20 cm"
+            data-price="Rp 20.000"
+            data-image="img/Product06.png"
+          >
+            <img
+              src="img/Product06.png"
+              alt="Mocca"
+              class="w-full h-72 object-cover"
+            />
+            <div class="p-4">
+              <h3 class="font-semibold text-lg text-gray-800 mb-2">
+                KULOK Mocca Lumer
+              </h3>
+              <p class="text-stone-800 font-bold text-xl">Rp 20.000</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Arrow -->
+        <button
+          id="next-product"
+          class="absolute right-0 bg-gray-200 p-3 rounded-full shadow-lg hover:bg-gray-300 focus:outline-none z-10 ml-4"
+        >
+          <i class="fas fa-chevron-right text-gray-700"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- === Viewer 3D Mulai Di Sini === -->
+    <section id="viewer3d" class="animate-on-scroll py-16 bg-gray-100">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">
+          Lihat Produk dalam 3D
+        </h2>
+
+        <!-- Area 3D -->
+        <div class="relative w-full overflow-hidden">
+          <div
+            id="three-slider"
+            class="flex transition-transform duration-500 ease-in-out"
+          >
+            <!-- Canvas 1 -->
+            <div class="w-full flex-shrink-0">
+              <canvas id="three-canvas-1" class="w-full h-[500px]"></canvas>
+            </div>
+            <!-- Canvas 2 -->
+            <div class="w-full flex-shrink-0">
+              <canvas id="three-canvas-2" class="w-full h-[500px]"></canvas>
+            </div>
+          </div>
+          <!-- Slider Controls -->
+          <div class="flex justify-center mt-4 gap-4">
+            <button
+              id="slider-prev"
+              class="px-4 py-2 bg-stone-600 text-white rounded-full hover:bg-stone-700"
+            >
+              &lt;
+            </button>
+            <button
+              id="slider-next"
+              class="px-4 py-2 bg-stone-600 text-white rounded-full hover:bg-stone-700"
+            >
+              &gt;
+            </button>
+          </div>
+        </div>
+
+        <!-- Tombol Kontrol -->
+        <div class="flex justify-center gap-4 mt-6">
+          <button
+            id="zoomInBtn"
+            class="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow"
+          >
+            <i class="fas fa-search-plus"></i>
+          </button>
+          <button
+            id="zoomOutBtn"
+            class="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow"
+          >
+            <i class="fas fa-search-minus"></i>
+          </button>
+          <button
+            id="autoRotateBtn"
+            class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-full shadow font-semibold"
+          >
+            Rotasi Otomatis
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- === Viewer 3D Selesai === -->
+
+    <!-- Corporate Partnership & Event Catering Section -->
+    <section
+      id="event-catering-section"
+      class="animate-on-scroll container mx-auto my-16 p-6 md:p-12 bg-white rounded-lg shadow-md flex flex-col md:flex-row gap-8"
+    >
+      <!-- Corporate Partnership -->
+      <div
+        class="md:w-1/2 flex flex-col md:flex-row items-center bg-gray-50 rounded-lg shadow-sm p-6"
+      >
+        <div class="md:w-1/2 mb-6 md:mb-0 md:mr-6">
+          <img
+            src="https://placehold.co/300x300/F8F8F8/888888?text=Corporate+Cake"
+            alt="Corporate Partnership Cake"
+            class="w-full h-auto object-cover rounded-lg shadow-md"
+          />
+        </div>
+        <div class="md:w-1/2 text-center md:text-left">
+          <h3 class="text-3xl font-bold text-gray-800 mb-4">
+            Kemitraan Korporat
+          </h3>
+          <p class="text-gray-700 leading-relaxed">
+            Kami menyederhanakan pemberian hadiah korporat dengan pilihan yang
+            disempurnakan dan hak istimewa pengemasan eksklusif.
+          </p>
+        </div>
+      </div>
+
+      <!-- Event Catering -->
+      <div
+        class="md:w-1/2 flex flex-col md:flex-row items-center bg-stone-50 rounded-lg shadow-sm p-6"
+      >
+        <div class="md:w-1/2 mb-6 md:mb-0 md:mr-6">
+          <img
+            src="https://placehold.co/300x300/D4C2B4/44403c?text=Event+Catering"
+            alt="Event Catering Spread"
+            class="w-full h-auto object-cover rounded-lg shadow-md"
+          />
+        </div>
+        <div class="md:w-1/2 text-center md:text-left">
+          <h3 class="text-3xl font-bold text-gray-800 mb-4">Katering Acara</h3>
+          <p class="text-gray-700 leading-relaxed">
+            Dari pertemuan intim hingga perayaan besar, layanan katering kami
+            akan menciptakan pengalaman yang tak terlupakan.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section
+      id="contact-section"
+      class="animate-on-scroll container mx-auto my-16 p-6 md:p-12 bg-white rounded-lg shadow-md"
+    >
+      <h2 class="text-4xl font-bold text-gray-800 text-center mb-10">
+        Hubungi Kami
+      </h2>
+      <div class="flex flex-col md:flex-row gap-12">
+        <!-- Contact Form -->
+        <div class="md:w-1/2">
+          <h3 class="text-2xl font-semibold text-gray-800 mb-6">
+            Kirim Pesan kepada Kami
+          </h3>
+          <form class="space-y-6">
+            <div>
+              <label
+                for="name"
+                class="block text-gray-700 text-sm font-medium mb-2"
+                >Nama Lengkap</label
+              >
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-stone-600"
+                placeholder="Masukkan nama lengkap Anda"
+              />
+            </div>
+            <div>
+              <label
+                for="email"
+                class="block text-gray-700 text-sm font-medium mb-2"
+                >Email</label
+              >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-stone-600"
+                placeholder="Masukkan alamat email Anda"
+              />
+            </div>
+            <div>
+              <label
+                for="subject"
+                class="block text-gray-700 text-sm font-medium mb-2"
+                >Subjek</label
+              >
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-stone-600"
+                placeholder="Subjek pesan Anda"
+              />
+            </div>
+            <div>
+              <label
+                for="message"
+                class="block text-gray-700 text-sm font-medium mb-2"
+                >Pesan</label
+              >
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-stone-600"
+                placeholder="Tulis pesan Anda di sini..."
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="w-full bg-stone-800 text-white px-6 py-3 rounded-full font-semibold text-lg hover:bg-stone-900 transition duration-300 shadow-md"
+            >
+              Kirim Pesan
+            </button>
+          </form>
+        </div>
+
+        <!-- Contact Info & Map -->
+        <div class="md:w-1/2">
+          <h3 class="text-2xl font-semibold text-gray-800 mb-6">
+            Informasi Kontak
+          </h3>
+          <div class="space-y-4 text-gray-700 text-lg">
+            <p>
+              <i class="fas fa-map-marker-alt mr-3 text-stone-600"></i>Jl.KH.
+              Guru Amin, Ps. Minggu, Kota Jakarta Selatan, Derah Khusus Ibukota
+              Jakarta 12520
+            </p>
+            <p>
+              <i class="fas fa-phone-alt mr-3 text-stone-600"></i>+62
+              812-345-678
+            </p>
+            <p>
+              <i class="fas fa-envelope mr-3 text-stone-600"></i
+              >kuloklumer01@gmail.com
+            </p>
+          </div>
+          <div class="mt-8">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-4">
+              Lokasi Kami
+            </h3>
+            <div
+              class="bg-gray-200 h-64 w-full rounded-lg flex items-center justify-center text-gray-600"
+            >
+              <!-- Placeholder for Google Maps iframe -->
+              <iframe
+                src="https://www.google.com/maps?q=Jl.KH.+Guru+Amin,+Ps.+Minggu,+Kota+Jakarta+Selatan,+DKI+Jakarta+12520&output=embed"
+                width="100%"
+                height="100%"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                class="rounded-lg"
+              ></iframe>
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-stone-800 text-gray-300 py-12 px-6 md:px-12 rounded-t-lg">
+      <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Logo and Newsletter -->
+        <div
+          class="col-span-1 flex flex-col items-center md:items-start text-center md:text-left"
+        >
+          <div class="flex flex-col items-center md:items-start mb-6">
+            <img
+              src="img/Logo.png"
+              alt="KULOK Logo Icon"
+              class="h-12 w-12 mb-2 rounded-full"
+            />
+            <span class="text-2xl font-semibold text-white">KULOK</span>
+          </div>
+          <h4 class="text-lg font-semibold mb-3 text-white">
+            Berlangganan Newsletter Kami
+          </h4>
+          <div class="flex w-full max-w-sm">
+            <input
+              type="email"
+              placeholder="email Anda..."
+              class="p-3 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-stone-600 flex-grow text-gray-900"
+            />
+            <button
+              id="subscribe-button"
+              class="bg-stone-600 text-white p-3 rounded-r-lg hover:bg-stone-700 transition duration-300"
+            >
+              Subscribe
+            </button>
+          </div>
+        </div>
+
+        <!-- Contact Us & Information -->
+        <div class="col-span-1 text-center">
+          <h4 class="text-lg font-semibold mb-4 text-white">Hubungi Kami</h4>
+          <ul class="space-y-2">
+            <li>
+              <i class="fab fa-whatsapp mr-2 text-stone-400"></i
+              ><a
+                href="https://wa.me/62811114960"
+                target="_blank"
+                class="hover:text-white transition duration-300"
+                >+62 811-114-960</a
+              >
+            </li>
+            <li>
+              <i class="fas fa-envelope mr-2 text-stone-400"></i
+              ><a
+                href="mailto:info@anns.co.id"
+                class="hover:text-white transition duration-300"
+                >Kirim Pertanyaan Anda</a
+              >
+            </li>
+          </ul>
+          <h4 class="text-lg font-semibold mt-6 mb-4 text-white">Informasi</h4>
+          <ul class="space-y-2">
+            <li>
+              <a href="#" class="hover:text-white transition duration-300"
+                >Pengiriman & Pengantaran</a
+              >
+            </li>
+            <li>
+              <a href="#" class="hover:text-white transition duration-300"
+                >Syarat & Ketentuan</a
+              >
+            </li>
+            <li>
+              <a href="#" class="hover:text-white transition duration-300"
+                >FAQ & Bantuan</a
+              >
+            </li>
+            <li>
+              <a href="#" class="hover:text-white transition duration-300"
+                >Lokasi Toko</a
+              >
+            </li>
+            <li>
+              <a href="#" class="hover:text-white transition duration-300"
+                >Blog</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Available On & Social Media -->
+        <div class="col-span-1 text-center md:text-right">
+          <h4 class="text-lg font-semibold mb-4 text-white">Tersedia Di</h4>
+          <ul class="space-y-2">
+            <li>
+              <a href="#" class="hover:text-white transition duration-300"
+                >Tokopedia</a
+              >
+            </li>
+            <li>
+              <a href="#" class="hover:text-white transition duration-300"
+                >Shopee</a
+              >
+            </li>
+            <li>
+              <a href="#" class="hover:text-white transition duration-300"
+                >GoFood</a
+              >
+            </li>
+            <li>
+              <a href="#" class="hover:text-white transition duration-300"
+                >GrabFood</a
+              >
+            </li>
+          </ul>
+          <h4 class="text-lg font-semibold mt-6 mb-4 text-white">
+            Media Sosial
+          </h4>
+          <div class="flex justify-center md:justify-end space-x-4 text-2xl">
+            <a href="#" class="hover:text-white transition duration-300"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" class="hover:text-white transition duration-300"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a href="#" class="hover:text-white transition duration-300"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="hover:text-white transition duration-300"
+              ><i class="fab fa-youtube"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center text-gray-500 text-sm mt-12">
+        &copy; 2025 KULOK. All rights reserved.
+      </div>
+    </footer>
+
+    <!-- Custom Modal Structure (for general alerts) -->
+    <div id="custom-modal" class="modal-overlay">
+      <div class="modal-content">
+        <h3 id="modal-title" class="text-2xl font-bold text-gray-800 mb-4"></h3>
+        <p id="modal-message" class="text-gray-700 mb-6"></p>
+        <button
+          id="modal-close-button"
+          class="bg-stone-800 text-white px-6 py-2 rounded-full font-semibold hover:bg-stone-900 transition duration-300"
+        >
+          Tutup
+        </button>
+      </div>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div id="product-detail-modal" class="modal-overlay">
+      <div class="modal-content max-w-xl p-6 relative">
+        <button
+          id="product-modal-close-button"
+          class="absolute top-4 right-4 text-gray-600 hover:text-gray-900 text-2xl focus:outline-none"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="flex flex-col md:flex-row gap-6 items-center">
+          <img
+            id="modal-product-image"
+            src=""
+            alt="Product Image"
+            class="w-full md:w-1/2 h-auto object-cover rounded-lg shadow-md"
+          />
+          <div class="md:w-1/2 text-left">
+            <h3
+              id="modal-product-name"
+              class="text-3xl font-bold text-gray-800 mb-2"
+            ></h3>
+            <p id="modal-product-size" class="text-gray-600 text-lg mb-2"></p>
+            <p
+              id="modal-product-price"
+              class="text-stone-800 font-bold text-2xl mb-4"
+            ></p>
+            <p
+              id="modal-product-description"
+              class="text-gray-700 leading-relaxed text-base mb-6"
+            >
+              Deskripsi singkat produk ini. Dibuat dengan bahan-bahan terbaik
+              untuk pengalaman rasa yang tak terlupakan. Cocok untuk setiap
+              kesempatan spesial Anda.
+            </p>
+            <a href="#"
+              ><button
+                class="bg-stone-800 text-white px-6 py-3 rounded-full font-semibold hover:bg-stone-900 transition duration-300"
+              >
+                Order Now
+              </button></a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="modal-overlay">
+      <div class="modal-content p-8 relative w-full max-w-2xl">
+        <button
+          id="search-close-button"
+          class="absolute top-4 right-4 text-gray-600 hover:text-gray-900 text-2xl focus:outline-none"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+        <h3 class="text-2xl font-bold text-gray-800 mb-6">KULOK pencarian..</h3>
+        <div class="flex mb-6">
+          <input
+            type="text"
+            id="search-input-field"
+            placeholder="Cari produk, rasa, atau informasi..."
+            class="flex-grow p-3 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-stone-600 text-gray-900"
+          />
+          <button
+            id="execute-search-button"
+            class="bg-stone-800 text-white p-3 rounded-r-md hover:bg-stone-900 transition duration-300"
+          >
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+        <div
+          id="search-results"
+          class="text-left max-h-80 overflow-y-auto bg-gray-50 p-4 rounded-lg border border-gray-200"
+        >
+          <p class="text-gray-600">Hasil pencarian akan muncul di sini.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chatbot Button -->
+    <div
+      id="chatbot-button"
+      class="flex items-center justify-center w-16 h-16 text-2xl cursor-pointer"
+    >
+      <i class="fas fa-comments"></i>
+    </div>
+
+    <!-- Chatbot Container -->
+    <div id="chatbot-container">
+      <div id="chat-header">
+        <h3 class="text-lg font-semibold">KULOK Chatbot</h3>
+        <button
+          id="close-chatbot"
+          class="text-white text-xl focus:outline-none"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div id="chat-body">
+        <!-- Chat messages will be appended here -->
+        <div class="chat-message bot">
+          Halo! Saya chatbot KULOK. Ada yang bisa saya bantu?
+        </div>
+      </div>
+      <div id="chat-loading" class="text-center py-2">Mengetik...</div>
+      <div id="chat-input-container">
+        <input
+          type="text"
+          id="chat-input"
+          placeholder="Ketik pesan Anda..."
+          class="flex-grow"
+        />
+        <button id="chat-send-button">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
