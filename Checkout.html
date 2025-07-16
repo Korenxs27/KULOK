@@ -1,0 +1,235 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B700%3B800"
+    />
+
+    <title>Kue Balok</title>
+    <link rel="icon" type="image/x-icon" href="img/Logo.jpeg" />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div
+      class="relative flex size-full min-h-screen flex-col bg-[#fcfaf8] group/design-root overflow-x-hidden"
+      style="
+        --radio-dot-svg: url('data:image/svg+xml,%3csvg viewBox=%270 0 16 16%27 fill=%27rgb(234,152,71)%27 xmlns=%27http://www.w3.org/2000/svg%27%3e%3ccircle cx=%278%27 cy=%278%27 r=%273%27/%3e%3c/svg%3e');
+        font-family: 'Plus Jakarta Sans', 'Noto Sans', sans-serif;
+      "
+    >
+      <div class="layout-container flex h-full grow flex-col">
+        <header
+          class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f3ede7] px-10 py-3"
+        >
+          <div class="flex items-center gap-4 text-[#1b140e]">
+            <div class="size-5">
+              <img src="img/Logo.jpeg" alt="Logo" class="size-5" />
+            </div>
+            <h2
+              class="text-[#1b140e] text-lg font-bold leading-tight tracking-[-0.015em]"
+            >
+              Kue Balok
+            </h2>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <div class="flex items-center gap-9">
+              <a
+                class="text-[#1b140e] text-sm font-medium leading-normal"
+                href="index.html"
+                >Home</a
+              >
+              <a
+                class="text-[#1b140e] text-sm font-medium leading-normal"
+                href="Menu.html"
+                >Menu</a
+              >
+              <a
+                class="text-[#1b140e] text-sm font-medium leading-normal"
+                href="About.html"
+                >About Us</a
+              >
+              <a
+                class="text-[#1b140e] text-sm font-medium leading-normal"
+                href="Contact.html"
+                >Contact</a
+              >
+            </div>
+            <button
+              class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#f3ede7] text-[#1b140e] text-sm font-bold leading-normal tracking-[0.015em]"
+            >
+              <span class="truncate">Cart (2)</span>
+            </button>
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+              style="
+                background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDjrLRT91_SX8CvnXqyqL_l1_wLvFs6PYjOAIfCHAdNcrax9qAJlswIVPJ5rCM4M5lXma9mNPNuTdFCetooSrhwzk_antc7v1OdXGWclGuulhODR7eAKwKiI8aIrzbnUX5js8ozlXtUXxoCCydzznhDuvfIn0xke9joyTLJ0qlG1zrjM3kk-VFgrN0Kq-elXs6suozzrFtDj74o8Iq-_8LMLD_Yuge3GfLWTkxhlKiEjNS8aG9pBPsZPA34hViA-EYDPO1xhLk7fsQ');
+              "
+            ></div>
+          </div>
+        </header>
+        <div class="gap-1 px-6 flex flex-1 justify-center py-5">
+          <div
+            class="layout-content-container flex flex-col max-w-[920px] flex-1"
+          >
+            <div class="flex flex-wrap gap-2 p-4">
+              <a
+                class="text-[#97734e] text-base font-medium leading-normal"
+                href="Chart.html"
+                >Cart</a
+              >
+              <span class="text-[#97734e] text-base font-medium leading-normal"
+                >/</span
+              >
+              <span class="text-[#1b140e] text-base font-medium leading-normal"
+                >Checkout</span
+              >
+            </div>
+            <h2
+              class="text-[#1b140e] tracking-light text-[28px] font-bold leading-tight px-4 text-left pb-3 pt-5"
+            >
+              Checkout
+            </h2>
+            <div
+              class="flex items-center gap-4 bg-[#fcfaf8] px-4 min-h-[72px] py-2"
+            >
+              <div
+                class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-14"
+                style="background-image: url('img/Product02.png')"
+              ></div>
+              <div class="flex flex-col justify-center">
+                <p
+                  class="text-[#1b140e] text-base font-medium leading-normal line-clamp-1"
+                >
+                  KULOK Matcha Lumer
+                </p>
+                <p
+                  class="text-[#97734e] text-sm font-normal leading-normal line-clamp-2"
+                >
+                  Quantity: 2
+                </p>
+              </div>
+            </div>
+            <h2
+              class="text-[#1b140e] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5"
+            >
+              Payment
+            </h2>
+            <div class="flex flex-col gap-3 p-4">
+              <label
+                class="flex items-center gap-4 rounded-xl border border-solid border-[#e7dbd0] p-[15px]"
+              >
+                <input
+                  type="radio"
+                  class="h-5 w-5 border-2 border-[#e7dbd0] bg-transparent text-transparent checked:border-[#ea9847] checked:bg-[image:--radio-dot-svg] focus:outline-none focus:ring-0 focus:ring-offset-0 checked:focus:border-[#ea9847]"
+                  name="e1a7cff0-cca8-4a11-8e7e-dc193df97007"
+                  checked=""
+                />
+                <div class="flex grow flex-col">
+                  <p class="text-[#1b140e] text-sm font-medium leading-normal">
+                    Bank Transfer
+                  </p>
+                </div>
+              </label>
+              <label
+                class="flex items-center gap-4 rounded-xl border border-solid border-[#e7dbd0] p-[15px]"
+              >
+                <input
+                  type="radio"
+                  class="h-5 w-5 border-2 border-[#e7dbd0] bg-transparent text-transparent checked:border-[#ea9847] checked:bg-[image:--radio-dot-svg] focus:outline-none focus:ring-0 focus:ring-offset-0 checked:focus:border-[#ea9847]"
+                  name="e1a7cff0-cca8-4a11-8e7e-dc193df97007"
+                />
+                <div class="flex grow flex-col">
+                  <p class="text-[#1b140e] text-sm font-medium leading-normal">
+                    Digital Wallet
+                  </p>
+                </div>
+              </label>
+            </div>
+            <div class="flex px-4 py-3 justify-end">
+              <button
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#ea9847] text-[#1b140e] text-sm font-bold leading-normal tracking-[0.015em]"
+              >
+                <span class="truncate">Place Order</span>
+              </button>
+            </div>
+          </div>
+          <div class="layout-content-container flex flex-col w-[360px]">
+            <h2
+              class="text-[#1b140e] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5"
+            >
+              Order Summary
+            </h2>
+            <div
+              class="flex items-center gap-4 bg-[#fcfaf8] px-4 min-h-[72px] py-2 justify-between"
+            >
+              <div class="flex flex-col justify-center">
+                <p
+                  class="text-[#1b140e] text-base font-medium leading-normal line-clamp-1"
+                >
+                  KULOK Matcha Lumer
+                </p>
+                <p
+                  class="text-[#97734e] text-sm font-normal leading-normal line-clamp-2"
+                >
+                  2 x KULOK Matcha Lumer
+                </p>
+              </div>
+              <div class="shrink-0">
+                <p class="text-[#1b140e] text-base font-normal leading-normal">
+                  RP.30.000
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex items-center gap-4 bg-[#fcfaf8] px-4 min-h-14 justify-between"
+            >
+              <p
+                class="text-[#1b140e] text-base font-normal leading-normal flex-1 truncate"
+              >
+                Subtotal
+              </p>
+              <div class="shrink-0">
+                <p class="text-[#1b140e] text-base font-normal leading-normal">
+                  Rp.30.000
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex items-center gap-4 bg-[#fcfaf8] px-4 min-h-14 justify-between"
+            >
+              <p
+                class="text-[#1b140e] text-base font-normal leading-normal flex-1 truncate"
+              >
+                Pajak
+              </p>
+              <div class="shrink-0">
+                <p class="text-[#1b140e] text-base font-normal leading-normal">
+                  Rp.0
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex items-center gap-4 bg-[#fcfaf8] px-4 min-h-14 justify-between"
+            >
+              <p
+                class="text-[#1b140e] text-base font-normal leading-normal flex-1 truncate"
+              >
+                Total
+              </p>
+              <div class="shrink-0">
+                <p class="text-[#1b140e] text-base font-normal leading-normal">
+                  Rp.30.000
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
